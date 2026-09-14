@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>અમાન સેલ્સ એજન્સી - બોટાદ</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- html2canvas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+    <main class="page-container">
+
+        <!-- ==================== ભાગ ૧: લોગો & ગ્રાહક એન્ટ્રી ==================== -->
+        <section id="sectionPart1" class="card main-box">
+            <div class="brand-header">
+                <img src="logo.png" alt="અમાન સેલ્સ એજન્સી" class="company-logo" id="logoPart1">
+                <div class="header-text">
+                    <h1 class="header-title">અમાન સેલ્સ એજન્સી</h1>
+                    <p class="header-owner">અમાન ભાઈ મો. 9510233419</p>
+                    <p class="header-address">મહંમદ નગર, સાળંગપુર રોડ, બોટાદ</p>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <div class="card-body">
+                <div class="step-badge">ભાગ ૧: ગ્રાહક વિગત</div>
+                <p class="subtitle">ગ્રાહકનું નામ અને મોબાઈલ નંબર લખો અથવા ફોન ડાયરીમાંથી સિલેક્ટ કરો</p>
+
+                <button type="button" class="btn-contact-picker" onclick="pickContactFromPhone()">
+                    📇 ફોન ડાયરીમાંથી કોન્ટેક્ટ પસંદ કરો
+                </button>
+
+                <form id="customerForm" onsubmit="goToPart2(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="custNameInput">ગ્રાહક / પેઢીનું નામ <span class="req">*</span></label>
+                            <input type="text" id="custNameInput" placeholder="દા.ત. અમાન ગલઢેરા    " required>
+                        </div>
+                        <div class="form-group">
+                            <label for="custMobileInput">મોબાઇલ નંબર (ફરજિયાત ૧૦ અંક) <span class="req">*</span></label>
+                            <input type="tel" id="custMobileInput" placeholder="દા.ત. 9510233419" pattern="[0-9]{10}" maxlength="10" minlength="10" oninput="validateMobileInput(this)" required>
+                            <small id="mobileError" style="color: red; display: none; font-size: 11px;">કૃપા કરીને પૂરા ૧૦ અંકનો મોબાઈલ નંબર નાખો</small>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large">
+                        ઓર્ડર લિસ્ટ પર જાઓ (ભાગ ૨) ➔
+                    </button>
+                </form>
+            </div>
+        </section>
+
+
+        <!-- ==================== ભાગ ૨: ઓર્ડર લિસ્ટ (ડાયરેક્ટ + / -) ==================== -->
+        <section id="sectionPart2" class="card main-box hidden">
+            <div class="customer-info-bar">
+                <div class="info-content">
+                    <span>ગ્રાહક: <strong id="activeCustName">-</strong></span>
+                    <span class="divider-dot">•</span>
+                    <span>મોબાઇલ: <strong id="activeCustMobile">-</strong></span>
+                </div>
+                <button type="button" class="btn-edit" onclick="goToPart1()">✏️ ગ્રાહક બદલો</button>
+            </div>
+
+            <div class="panel-top">
+                <div>
+                    <h2>📋 ભાગ ૨: નમકીન ઓર્ડર લિસ્ટ</h2>
+                    <p class="subtitle">+ અથવા - કરતાં જ આઇટમ ડાયરેક્ટ બિલમાં ઉમેરાઈ જશે</p>
+                </div>
+                <div class="search-box">
+                    <input type="text" id="productSearch" placeholder="🔍 આઇટમ શોધો (દા.ત. ગાંઠીયા, સેવ...)" oninput="filterProductCards()">
+                </div>
+            </div>
+
+            <div id="productsFullContainer" class="products-grid"></div>
+
+            <div class="view-bill-bar">
+                <button type="button" class="btn btn-view-bill" onclick="goToPart3()">
+                    🧾 ઓર્ડર બિલ જુઓ (ભાગ ૩ - લાઈવ બિલ) ➔
+                </button>
+            </div>
+        </section>
+
+
+        <!-- ==================== ભાગ ૩: લાઈવ બિલ & હિસાબ ==================== -->
+        <section id="sectionPart3" class="card main-box hidden">
+            <div class="bill-nav-top">
+                <button type="button" class="btn-back" onclick="backToPart2()">
+                    ⬅️ ઓર્ડરમાં વધુ આઇટમ ઉમેરો (ભાગ ૨)
+                </button>
+                <span class="badge-live">લાઈવ હિસાબ બિલ</span>
+            </div>
+
+            <!-- પેમેન્ટ કંટ્રોલ પેનલ -->
+            <div class="payment-control-panel">
+                <h3 class="panel-heading">💰 પેમેન્ટ અને હિસાબ એન્ટ્રી</h3>
+                <div class="payment-grid">
+                    <div class="pay-input-item">
+                        <label>💵 રોકડ (Cash) ₹:</label>
+                        <input type="number" id="payCash" value="0" min="0" oninput="calculateBalance()">
+                    </div>
+                    <div class="pay-input-item">
+                        <label>📲 ઓનલાઇન (Online) ₹:</label>
+                        <input type="number" id="payOnline" value="0" min="0" oninput="calculateBalance()">
+                    </div>
+                    <div class="pay-input-item">
+                        <label>🏷️ ડિસ્કાઉન્ટ (Discount) ₹:</label>
+                        <input type="number" id="payDiscount" value="0" min="0" oninput="calculateBalance()">
+                    </div>
+                    <div class="pay-input-item">
+                        <label>📥 અગાઉ જમા (Deposit) ₹:</label>
+                        <input type="number" id="payDeposit" value="0" min="0" oninput="calculateBalance()">
+                    </div>
+                    <div class="pay-input-item balance-item">
+                        <label>⚠️ કુલ બાકી રકમ (Due) ₹:</label>
+                        <input type="number" id="payDue" value="0" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <!-- આ ભાગ ફોટો, PDF અને પ્રિન્ટરમાં જશે -->
+            <div id="printableBillArea" class="bill-paper">
+                <div class="bill-header">
+                    <img src="logo.png" alt="અમાન સેલ્સ એજન્સી" class="company-logo bill-logo-img" id="logoPart3">
+                    <h2>અમાન સેલ્સ એજન્સી</h2>
+                    <p class="bill-owner">અમાન ભાઈ મો. 9510233419</p>
+                    <p class="bill-address">મહંમદ નગર, સાળંગપુર રોડ, બોટાદ</p>
+                </div>
+
+                <div class="bill-meta-grid">
+                    <div><strong>ગ્રાહક:</strong> <span id="billCustDisplay">-</span></div>
+                    <div><strong>મોબાઇલ:</strong> <span id="billPhoneDisplay">-</span></div>
+                    <div class="full-width"><strong>તારીખ & સમય:</strong> <span id="billDateDisplay">--</span></div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="bill-table">
+                        <thead>
+                            <tr>
+                                <th class="text-left">નમકીન પ્રોડક્ટ</th>
+                                <th>કટો/બોક્સ</th>
+                                <th>છૂટક</th>
+                                <th>કુલ પાઉંચ</th>
+                                <th>ભાવ</th>
+                                <th>કુલ રકમ</th>
+                                <th class="no-capture">હટાવો</th>
+                            </tr>
+                        </thead>
+                        <tbody id="billItemsTbody">
+                            <tr>
+                                <td colspan="7" class="empty-cart-msg">હજુ કોઈ આઇટમ ઉમેરેલી નથી.</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="total-row-main">
+                                <td colspan="5" class="text-right">માલની કુલ રકમ:</td>
+                                <td colspan="2" id="billGrossTotal">₹ 0</td>
+                            </tr>
+                            <tr class="calc-summary-row" id="rowDiscount" style="display: none;">
+                                <td colspan="5" class="text-right">બાદ ડિસ્કાઉન્ટ:</td>
+                                <td colspan="2" id="dispDiscount">₹ 0</td>
+                            </tr>
+                            <tr class="calc-summary-row" id="rowDeposit" style="display: none;">
+                                <td colspan="5" class="text-right">બાદ અગાઉ જમા:</td>
+                                <td colspan="2" id="dispDeposit">₹ 0</td>
+                            </tr>
+                            <tr class="calc-summary-row" id="rowPaid" style="display: none;">
+                                <td colspan="5" class="text-right">આવેલ રકમ (રોકડ + ઓનલાઇન):</td>
+                                <td colspan="2" id="dispPaid">₹ 0</td>
+                            </tr>
+                            <tr class="due-highlight-row">
+                                <td colspan="5" class="text-right">કુલ ચૂકવવાપાત્ર / બાકી રકમ:</td>
+                                <td colspan="2" id="billFinalDueTotal">₹ 0</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <div class="bill-terms">
+                    <p>✓ માલ મળ્યા બદલ આભાર! ફરી ઓર્ડર આપશો.</p>
+                </div>
+            </div>
+
+            <!-- એક્શન બટન્સ -->
+            <div class="action-buttons-grid">
+                <button type="button" class="btn-act btn-download-act" onclick="exportBillToGallery()">
+                    📸 ગેલેરીમાં બિલ સેવ કરો
+                </button>
+                <button type="button" class="btn-act btn-whatsapp-act" onclick="shareOnWhatsAppAndSave()">
+                    💬 WhatsApp પર મોકલો
+                </button>
+                <button type="button" class="btn-act btn-pdf-act" onclick="saveBillAsPDF()">
+                    📄 PDF તરીકે સેવ કરો
+                </button>
+                <button type="button" class="btn-act btn-print-act" onclick="printBillDirect()">
+                    🖨️ પ્રિન્ટ બિલ (Printer)
+                </button>
+                <button type="button" class="btn-act btn-clear-act" onclick="clearFullBill()">
+                    🔄 ક્લિયર બિલ (નવો ઓર્ડર)
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
