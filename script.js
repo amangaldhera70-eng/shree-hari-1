@@ -1,44 +1,48 @@
 // ૧. લિસ્ટ મુજબનો કાયમી પ્રોડક્ટ ડેટા
 const productCatalog = [
-    // --- 500 ગ્રામ (A & B) ---
-    { id: 1, name: "સ્પે સેવ (500 Gm)", packType: "કટો", packSize: 24, price: 70 },
-    { id: 2, name: "ભાવનગરી ગાંઠીયા (500 Gm)", packType: "કટો", packSize: 24, price: 70 },
-    { id: 3, name: "નાયલોન ગાંઠીયા (500 Gm)", packType: "કટો", packSize: 24, price: 70 },
-    { id: 4, name: "મસાલા તીખા ગાંઠીયા (500 Gm)", packType: "કટો", packSize: 24, price: 70 },
-    { id: 5, name: "સ્પે ચવાણું (500 Gm)", packType: "કટો", packSize: 30, price: 70 },
-    { id: 6, name: "ખટ્ટા મીઠા મીક્ષ (500 Gm)", packType: "કટો", packSize: 30, price: 70 },
-    { id: 7, name: "મસાલા ચણા દાળ (500 Gm)", packType: "કટો", packSize: 30, price: 70 },
-    { id: 8, name: "મોળી ચણા દાળ (500 Gm)", packType: "કટો", packSize: 30, price: 70 },
-    { id: 9, name: "મસાલા વટાણા (500 Gm)", packType: "કટો", packSize: 30, price: 70 },
-    { id: 10, name: "રતલામી સેવ (500 Gm)", packType: "કટો", packSize: 24, price: 75 },
-    { id: 11, name: "આલુ સેવ (500 Gm)", packType: "કટો", packSize: 24, price: 75 },
-    { id: 12, name: "તીખો ફરાળી ચેવડો (500 Gm)", packType: "કટો", packSize: 30, price: 75 },
-    { id: 13, name: "લીંબુ શીંગ ભુજીયા (500 Gm)", packType: "કટો", packSize: 30, price: 75 },
-    { id: 14, name: "મસાલા શીંગ ભુજીયા (500 Gm)", packType: "કટો", packSize: 30, price: 75 },
-    { id: 15, name: "સ્પે. સ્વીટ ફરાળી ચેવડો (500 Gm)", packType: "કટો", packSize: 30, price: 75 },
+    // --- ૧. 500 ગ્રામ (સેક્શન A) - વાદળી થીમ ---
+    { id: 1, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "સ્પે સેવ (500 Gm)", packType: "કટો", packSize: 24, price: 70 },
+    { id: 2, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "ભાવનગરી ગાંઠીયા (500 Gm)", packType: "કટો", packSize: 24, price: 70 },
+    { id: 3, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "નાયલોન ગાંઠીયા (500 Gm)", packType: "કટો", packSize: 24, price: 70 },
+    { id: 4, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "મસાલા તીખા ગાંઠીયા (500 Gm)", packType: "કટો", packSize: 24, price: 70 },
+    { id: 5, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "સ્પે ચવાણું (500 Gm)", packType: "કટો", packSize: 30, price: 70 },
+    { id: 6, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "ખટ્ટા મીઠા મીક્ષ (500 Gm)", packType: "કટો", packSize: 30, price: 70 },
+    { id: 7, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "મસાલા ચણા દાળ (500 Gm)", packType: "કટો", packSize: 30, price: 70 },
+    { id: 8, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "મોળી ચણા દાળ (500 Gm)", packType: "કટો", packSize: 30, price: 70 },
+    { id: 9, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "મસાલા વટાણા (500 Gm)", packType: "કટો", packSize: 30, price: 70 },
 
-    // --- 450 ગ્રામ (D) ---
-    { id: 16, name: "ડાયમંડ ચવાણું (450 Gm)", packType: "કટો", packSize: 30, price: 55 },
+    // --- ૨. 500 ગ્રામ પ્રીમિયમ (સેક્શન B) - જાંબલી/પર્પલ થીમ ---
+    { id: 10, category: "૫૦૦ ગ્રામ (પ્રીમિયમ)", colorClass: "cat-purple", name: "રતલામી સેવ (500 Gm)", packType: "કટો", packSize: 24, price: 75 },
+    { id: 11, category: "૫૦૦ ગ્રામ (પ્રીમિયમ)", colorClass: "cat-purple", name: "આલુ સેવ (500 Gm)", packType: "કટો", packSize: 24, price: 75 },
+    { id: 12, category: "૫૦૦ ગ્રામ (પ્રીમિયમ)", colorClass: "cat-purple", name: "તીખો ફરાળી ચેવડો (500 Gm)", packType: "કટો", packSize: 30, price: 75 },
+    { id: 13, category: "૫૦૦ ગ્રામ (પ્રીમિયમ)", colorClass: "cat-purple", name: "લીંબુ શીંગ ભુજીયા (500 Gm)", packType: "કટો", packSize: 30, price: 75 },
+    { id: 14, category: "૫૦૦ ગ્રામ (પ્રીમિયમ)", colorClass: "cat-purple", name: "મસાલા શીંગ ભુજીયા (500 Gm)", packType: "કટો", packSize: 30, price: 75 },
+    { id: 15, category: "૫૦૦ ગ્રામ (પ્રીમિયમ)", colorClass: "cat-purple", name: "સ્પે સ્વીટ ફરાળી ચેવડો (500 Gm)", packType: "કટો", packSize: 30, price: 75 },
 
-    // --- 400 ગ્રામ (E) ---
-    { id: 17, name: "દબેલા ચણા (400 Gm)", packType: "કટો", packSize: 30, price: 50 },
-    { id: 18, name: "સેવ મમરા ગાર્લીક (400 Gm)", packType: "કટો", packSize: 30, price: 50 },
-    { id: 19, name: "સેવ મમરા મોળા (400 Gm)", packType: "કટો", packSize: 30, price: 50 },
-    { id: 20, name: "શક્કરપારા (400 Gm)", packType: "કટો", packSize: 30, price: 50 },
-    { id: 21, name: "ભાખરવડી (400 Gm)", packType: "કટો", packSize: 30, price: 50 },
+    // --- ૩. 450 ગ્રામ (સેક્શન D) - એમ્બર/ઓરેન્જ થીમ ---
+    { id: 16, category: "૪૫૦ ગ્રામ", colorClass: "cat-amber", name: "ડાયમંડ ચવાણું (450 Gm)", packType: "કટો", packSize: 30, price: 55 },
 
-    // --- 250 ગ્રામ & 200 ગ્રામ (F બોક્ષ/કટો) ---
-    { id: 22, name: "મિક્ષ ચવાણું (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40 },
-    { id: 23, name: "નાયલોન ગાંઠીયા (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40 },
-    { id: 24, name: "ખટ્ટામીઠા મિક્ષ (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40 },
-    { id: 25, name: "ભાવનગરી ગાંઠીયા (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40 },
-    { id: 26, name: "રતલામી સેવ (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40 },
-    { id: 27, name: "સ્પે. સેવ (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40 },
-    { id: 28, name: "મસાલા દાળ (250 Gm)", packType: "બોક્ષ", packSize: 24, price: 40 },
-    { id: 29, name: "તીખો ફરાળી ચેવડો (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40 },
-    { id: 30, name: "સ્પે. સ્વીટ ફરાળી ચેવડો (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40 },
-    { id: 31, name: "શીંગ ભજીયા (250 Gm)", packType: "બોક્ષ", packSize: 24, price: 40 },
-    { id: 32, name: "સોયા સ્ટીક (200 Gm)", packType: "બોક્ષ", packSize: 20, price: 35 }
+    // --- ૪. 400 ગ્રામ (સેક્શન E) - ટીલ/સમુદ્રી થીમ ---
+    { id: 17, category: "૪૦૦ ગ્રામ", colorClass: "cat-teal", name: "દાબેલા ચણા (400 Gm)", packType: "કટો", packSize: 30, price: 50 },
+    { id: 18, category: "૪૦૦ ગ્રામ", colorClass: "cat-teal", name: "સેવ મમરા ગાર્લીક (400 Gm)", packType: "કટો", packSize: 30, price: 50 },
+    { id: 19, category: "૪૦૦ ગ્રામ", colorClass: "cat-teal", name: "સેવ મમરા મોળા (400 Gm)", packType: "કટો", packSize: 30, price: 50 },
+    { id: 20, category: "૪૦૦ ગ્રામ", colorClass: "cat-teal", name: "શક્કરપારા (400 Gm)", packType: "કટો", packSize: 30, price: 50 },
+    { id: 21, category: "૪૦૦ ગ્રામ", colorClass: "cat-teal", name: "ભાખરવડી (400 Gm)", packType: "કટો", packSize: 30, price: 50 },
+
+    // --- ૫. 250 ગ્રામ (સેક્શન F) - લીલી/ગ્રીન થીમ ---
+    { id: 22, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "સ્પે ચવાણું (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40 },
+    { id: 23, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "નાયલોન ગાંઠીયા (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40 },
+    { id: 24, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "ખટ્ટામીઠા મિક્ષ (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40 },
+    { id: 25, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "ભાવનગરી ગાંઠીયા (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40 },
+    { id: 26, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "રતલામી સેવ (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40 },
+    { id: 27, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "સ્પે સેવ (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40 },
+    { id: 28, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "મસાલા ચણા દાળ (250 Gm)", packType: "બોક્ષ", packSize: 24, price: 40 },
+    { id: 29, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "તીખો ફરાળી ચેવડો (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40 },
+    { id: 30, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "સ્પે સ્વીટ ફરાળી ચેવડો (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40 },
+    { id: 31, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "શીંગ ભજીયા (250 Gm)", packType: "બોક્ષ", packSize: 24, price: 40 },
+
+    // --- ૬. 200 ગ્રામ (સેક્શન G) - ગુલાબી/પિંક થીમ ---
+    { id: 32, category: "૨૦૦ ગ્રામ", colorClass: "cat-pink", name: "સોયા સ્ટીક (200 Gm)", packType: "બોક્ષ", packSize: 20, price: 35 }
 ];
 
 let customerInfo = { name: "", mobile: "" };
@@ -46,7 +50,6 @@ let cartItems = [];
 let grossBillTotal = 0;
 let finalDueAmount = 0;
 
-// તારીખ અને સમય અપડેટ
 function updateDateTime() {
     const now = new Date();
     const formatted = now.toLocaleDateString('gu-IN') + ' ' + now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -54,7 +57,6 @@ function updateDateTime() {
     if (dateEl) dateEl.innerText = formatted;
 }
 
-// ૧૦ અંકનું લાઈવ વેલિડેશન (માત્ર અંકો અને ૧૦ થી વધુ નહીં)
 function validateMobileInput(input) {
     input.value = input.value.replace(/[^0-9]/g, '');
     const err = document.getElementById('mobileError');
@@ -63,7 +65,6 @@ function validateMobileInput(input) {
     }
 }
 
-// ફોન ડાયરી કનેક્શન (GitHub Pages લાઈવ માટે)
 async function pickContactFromPhone() {
     const props = ['name', 'tel'];
     const opts = { multiple: false };
@@ -96,7 +97,6 @@ window.addEventListener('DOMContentLoaded', () => {
     updateDateTime();
 });
 
-// ભાગ ૧ -> ભાગ ૨ (૧૦ અંકનું કડક ચેકિંગ)
 function goToPart2(e) {
     if (e) e.preventDefault();
     const name = document.getElementById('custNameInput').value.trim();
@@ -107,7 +107,6 @@ function goToPart2(e) {
         return;
     }
 
-    // મોબાઈલ નંબર પૂરા ૧૦ અંકનો જ હોવો જોઈએ
     if (!/^[0-9]{10}$/.test(mobile)) {
         document.getElementById('mobileError').style.display = 'block';
         alert("ભૂલ: મોબાઈલ નંબર પૂરા ૧૦ અંકનો જ હોવો જોઈએ! (૯ કે ૧૧ અંક નહીં ચાલે)");
@@ -133,14 +132,12 @@ function goToPart2(e) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ભાગ ૨ -> ભાગ ૧
 function goToPart1() {
     document.getElementById('sectionPart1').classList.remove('hidden');
     document.getElementById('sectionPart2').classList.add('hidden');
     document.getElementById('sectionPart3').classList.add('hidden');
 }
 
-// ભાગ ૨ -> ભાગ ૩ (લાઈવ બિલ)
 function goToPart3() {
     if (cartItems.length === 0) {
         alert("બિલ જોવા માટે પહેલા લિસ્ટમાંથી સંખ્યા પસંદ કરો!");
@@ -156,20 +153,35 @@ function goToPart3() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ભાગ ૩ -> ભાગ ૨
 function backToPart2() {
     document.getElementById('sectionPart1').classList.add('hidden');
     document.getElementById('sectionPart2').classList.remove('hidden');
     document.getElementById('sectionPart3').classList.add('hidden');
 }
 
-// પ્રોડક્ટ કાર્ડ્સ રેન્ડર કરવા
 function renderProductCards(products) {
     const container = document.getElementById('productsFullContainer');
     if (!container) return;
     container.innerHTML = '';
 
-    products.forEach((item) => {
+    let lastCategory = "";
+
+    products.forEach((item, index) => {
+        if (item.category !== lastCategory) {
+            if (index !== 0) {
+                const divider = document.createElement('hr');
+                divider.className = 'section-divider';
+                container.appendChild(divider);
+            }
+
+            const catBlock = document.createElement('div');
+            catBlock.className = 'category-block';
+            catBlock.innerHTML = `<span class="category-title ${item.colorClass}-header">📂 ${item.category}</span>`;
+            container.appendChild(catBlock);
+
+            lastCategory = item.category;
+        }
+
         const fullKattaPrice = item.packSize * item.price;
         const inCart = cartItems.find(c => c.id === item.id);
         const currentKatta = inCart ? inCart.katta : 0;
@@ -177,7 +189,7 @@ function renderProductCards(products) {
         const isSelected = (currentKatta > 0 || currentLoose > 0);
 
         const card = document.createElement('div');
-        card.className = `prod-card ${isSelected ? 'active-selected' : ''}`;
+        card.className = `prod-card theme-${item.colorClass} ${isSelected ? 'active-selected' : ''}`;
         card.id = `card_${item.id}`;
 
         card.innerHTML = `
@@ -214,6 +226,10 @@ function renderProductCards(products) {
         `;
         container.appendChild(card);
     });
+
+    const finalDivider = document.createElement('hr');
+    finalDivider.className = 'section-divider';
+    container.appendChild(finalDivider);
 }
 
 function stepCountDirect(id, type, change) {
@@ -250,6 +266,8 @@ function autoUpdateCart(id) {
         } else {
             cartItems.push({
                 id: item.id,
+                category: item.category,
+                colorClass: item.colorClass,
                 name: item.name,
                 packType: item.packType,
                 katta: kattaQty,
@@ -269,20 +287,22 @@ function autoUpdateCart(id) {
 
 function filterProductCards() {
     const query = document.getElementById('productSearch').value.toLowerCase().trim();
-    const filtered = productCatalog.filter(p => p.name.toLowerCase().includes(query));
+    const filtered = productCatalog.filter(p => p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query));
     renderProductCards(filtered);
 }
 
-function removeInvoiceItem(index) {
-    const removed = cartItems[index];
-    cartItems.splice(index, 1);
+function removeInvoiceItem(id) {
+    const itemIndex = cartItems.findIndex(c => c.id === id);
+    if (itemIndex > -1) {
+        cartItems.splice(itemIndex, 1);
+    }
 
-    const k = document.getElementById(`katta_${removed.id}`);
-    const l = document.getElementById(`loose_${removed.id}`);
+    const k = document.getElementById(`katta_${id}`);
+    const l = document.getElementById(`loose_${id}`);
     if (k) k.value = 0;
     if (l) l.value = 0;
 
-    const c = document.getElementById(`card_${removed.id}`);
+    const c = document.getElementById(`card_${id}`);
     if (c) c.classList.remove('active-selected');
 
     updateInvoiceTable();
@@ -302,28 +322,53 @@ function updateInvoiceTable() {
         return;
     }
 
-    cartItems.forEach((rowItem, idx) => {
-        grossBillTotal += rowItem.totalCost;
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-            <td class="text-left"><strong>${rowItem.name}</strong></td>
-            <td>${rowItem.katta > 0 ? rowItem.katta + ' ' + rowItem.packType : '-'}</td>
-            <td>${rowItem.loose > 0 ? rowItem.loose + ' નંગ' : '-'}</td>
-            <td><strong>${rowItem.totalPouches}</strong></td>
-            <td>₹${rowItem.unitPrice}</td>
-            <td>₹${rowItem.totalCost}</td>
-            <td class="no-capture">
-                <button type="button" class="btn-del" onclick="removeInvoiceItem(${idx})">✕</button>
-            </td>
-        `;
-        tbody.appendChild(tr);
+    const categoriesOrder = [
+        "૫૦૦ ગ્રામ (રેગ્યુલર)",
+        "૫૦૦ ગ્રામ (પ્રીમિયમ)",
+        "૪૫૦ ગ્રામ",
+        "૪૦૦ ગ્રામ",
+        "૨૫૦ ગ્રામ (બોક્ષ/કટો)",
+        "૨૦૦ ગ્રામ"
+    ];
+
+    categoriesOrder.forEach(catName => {
+        const itemsUnderCat = cartItems.filter(ci => ci.category === catName);
+        if (itemsUnderCat.length > 0) {
+            const firstItem = itemsUnderCat[0];
+            const catHeaderClass = firstItem.colorClass ? firstItem.colorClass.replace('cat-', 'bcat-') : 'bcat-blue';
+
+            const catHeaderTr = document.createElement('tr');
+            catHeaderTr.innerHTML = `
+                <td colspan="7" class="bill-cat-header-row ${catHeaderClass}">
+                    📂 ${catName}
+                </td>
+            `;
+            tbody.appendChild(catHeaderTr);
+
+            itemsUnderCat.forEach(rowItem => {
+                grossBillTotal += rowItem.totalCost;
+                const itemTr = document.createElement('tr');
+                itemTr.className = `brow-${rowItem.colorClass}`;
+                itemTr.innerHTML = `
+                    <td class="text-left"><strong>${rowItem.name}</strong></td>
+                    <td>${rowItem.katta > 0 ? rowItem.katta + ' ' + rowItem.packType : '-'}</td>
+                    <td>${rowItem.loose > 0 ? rowItem.loose + ' નંગ' : '-'}</td>
+                    <td><strong>${rowItem.totalPouches}</strong></td>
+                    <td>₹${rowItem.unitPrice}</td>
+                    <td><strong>₹${rowItem.totalCost}</strong></td>
+                    <td class="no-capture">
+                        <button type="button" class="btn-del" onclick="removeInvoiceItem(${rowItem.id})">✕</button>
+                    </td>
+                `;
+                tbody.appendChild(itemTr);
+            });
+        }
     });
 
     document.getElementById('billGrossTotal').innerText = `₹ ${grossBillTotal.toLocaleString('en-IN')}`;
     calculateBalance();
 }
 
-// ૫ પેમેન્ટ બટન મુજબ ગણતરી
 function calculateBalance() {
     const cash = parseFloat(document.getElementById('payCash').value) || 0;
     const online = parseFloat(document.getElementById('payOnline').value) || 0;
@@ -363,7 +408,6 @@ function calculateBalance() {
     }
 }
 
-// સહાયક: લોગો સાથે ૧૦૦% સાચો કેનવાસ બનાવવો
 async function renderBillCanvas() {
     updateDateTime();
     const billArea = document.getElementById('printableBillArea');
@@ -395,7 +439,6 @@ async function renderBillCanvas() {
     }
 }
 
-// ૧. ગેલેરીમાં બિલ સેવ કરવું
 async function exportBillToGallery() {
     if (cartItems.length === 0) {
         alert('બિલ સેવ કરવા માટે પહેલા ઓછામાં ઓછી ૧ આઇટમ ઉમેરો!');
@@ -418,7 +461,6 @@ async function exportBillToGallery() {
     }
 }
 
-// ૨. WhatsApp: સીધો ફોટો શેર કરવો (GitHub Pages પર)
 async function shareOnWhatsAppAndSave() {
     if (cartItems.length === 0) {
         alert('પહેલા ઓર્ડરમાં આઇટમ ઉમેરો!');
@@ -439,7 +481,6 @@ async function shareOnWhatsAppAndSave() {
     let mobile = customerInfo.mobile.replace(/[^0-9]/g, '');
     if (mobile.length === 10) mobile = '91' + mobile;
 
-    // ગેલેરીમાં પણ સેવ થઈ જાય
     const downloadLink = document.createElement('a');
     downloadLink.download = fileName;
     downloadLink.href = canvas.toDataURL('image/png');
@@ -447,7 +488,6 @@ async function shareOnWhatsAppAndSave() {
     downloadLink.click();
     document.body.removeChild(downloadLink);
 
-    // Web Share API થી ડાયરેક્ટ ફોટો WhatsApp શેર કરવો
     if (navigator.canShare && canvas.toBlob) {
         canvas.toBlob(async (blob) => {
             const imageFile = new File([blob], fileName, { type: 'image/png' });
@@ -475,34 +515,6 @@ function openWhatsAppChatFallback(mobile) {
     window.open(`https://wa.me/${mobile}`, '_blank');
 }
 
-// ૩. PDF: ગેલેરી જેવા જ ૧૦૦% સેમ લેઆઉટમાં A4 PDF ડાઉનલોડ
-async function saveBillAsPDF() {
-    if (cartItems.length === 0) {
-        alert('PDF સેવ કરવા માટે પહેલા આઇટમ ઉમેરો!');
-        return;
-    }
-
-    const canvas = await renderBillCanvas();
-    const imgData = canvas.toDataURL('image/png');
-
-    const element = document.createElement('div');
-    element.style.padding = "10px";
-    element.style.textAlign = "center";
-    element.innerHTML = `<img src="${imgData}" style="width: 100%; max-width: 600px; display: block; margin: 0 auto;">`;
-
-    const safeCustName = customerInfo.name.replace(/\s+/g, '_') || 'Customer';
-    const opt = {
-        margin: [5, 5, 5, 5],
-        filename: `AmanSales_Bill_${safeCustName}.pdf`,
-        image: { type: 'jpeg', quality: 1 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    };
-
-    html2pdf().set(opt).from(element).save();
-}
-
-// ૪. પ્રિન્ટ બિલ (ફક્ત બિલ જ પ્રિન્ટરમાં આવશે)
 function printBillDirect() {
     if (cartItems.length === 0) {
         alert('પ્રિન્ટ કરવા માટે પહેલા આઇટમ ઉમેરો!');
@@ -515,16 +527,13 @@ function printBillDirect() {
     const deleteButtons = billArea.querySelectorAll('.no-capture');
     deleteButtons.forEach(btn => btn.style.display = 'none');
 
-    // પ્રિન્ટ ડાયલોગ ખોલવો
     window.print();
 
-    // પ્રિન્ટ વિન્ડો બંધ થયા પછી પાછાં બટનો દર્શાવવા
     setTimeout(() => {
         deleteButtons.forEach(btn => btn.style.display = '');
     }, 1000);
 }
 
-// ૫. ક્લિયર
 function clearFullBill() {
     if (confirm("શું તમે ખરેખર બિલ ક્લિયર કરીને નવો ઓર્ડર શરૂ કરવા માંગો છો?")) {
         cartItems = [];
