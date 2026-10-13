@@ -225,7 +225,7 @@ body {
     background: #dbeafe;
 }
 
-/* ભાગ ૨: પ્રોડક્ટ લિસ્ટ */
+/* ==================== ભાગ ૨: ઓર્ડર લિસ્ટ ==================== */
 .panel-top {
     display: flex;
     flex-direction: column;
@@ -264,10 +264,31 @@ body {
     }
 }
 
+.category-block {
+    grid-column: 1 / -1;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.category-title {
+    font-size: 15px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.section-divider {
+    grid-column: 1 / -1;
+    border: 0;
+    border-top: 2px dashed #94a3b8;
+    margin: 20px 0 10px 0;
+}
+
 .prod-card {
-    border: 1.5px solid var(--border-color);
-    border-radius: 10px;
-    padding: 14px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 15px;
     background: #ffffff;
     display: flex;
     flex-direction: column;
@@ -276,10 +297,46 @@ body {
     transition: 0.2s;
 }
 
+/* કલરફુલ થીમ્સ */
+.cat-blue-header { background: #dbeafe; color: #1e40af; border-left: 5px solid #2563eb; }
+.theme-cat-blue { border-color: #93c5fd; background: #f8fbff; }
+.theme-cat-blue .rate-val { color: #1d4ed8; }
+.theme-cat-blue .rate-katta-total { background: #dbeafe; color: #1e40af; border-color: #bfdbfe; }
+.theme-cat-blue .btn-ctrl { background: #eff6ff; color: #1d4ed8; }
+
+.cat-purple-header { background: #f3e8ff; color: #6b21a8; border-left: 5px solid #9333ea; }
+.theme-cat-purple { border-color: #d8b4fe; background: #faf5ff; }
+.theme-cat-purple .rate-val { color: #7e22ce; }
+.theme-cat-purple .rate-katta-total { background: #f3e8ff; color: #6b21a8; border-color: #e9d5ff; }
+.theme-cat-purple .btn-ctrl { background: #faf5ff; color: #7e22ce; }
+
+.cat-amber-header { background: #ffedd5; color: #c2410c; border-left: 5px solid #f97316; }
+.theme-cat-amber { border-color: #fdba74; background: #fffaf5; }
+.theme-cat-amber .rate-val { color: #c2410c; }
+.theme-cat-amber .rate-katta-total { background: #ffedd5; color: #9a3412; border-color: #fed7aa; }
+.theme-cat-amber .btn-ctrl { background: #fff7ed; color: #c2410c; }
+
+.cat-teal-header { background: #ccfbf1; color: #0f766e; border-left: 5px solid #0d9488; }
+.theme-cat-teal { border-color: #5eead4; background: #f0fdfa; }
+.theme-cat-teal .rate-val { color: #0f766e; }
+.theme-cat-teal .rate-katta-total { background: #ccfbf1; color: #115e59; border-color: #99f6e4; }
+.theme-cat-teal .btn-ctrl { background: #f0fdfa; color: #0f766e; }
+
+.cat-green-header { background: #dcfce7; color: #15803d; border-left: 5px solid #16a34a; }
+.theme-cat-green { border-color: #86efac; background: #f0fdf4; }
+.theme-cat-green .rate-val { color: #16a34a; }
+.theme-cat-green .rate-katta-total { background: #dcfce7; color: #166534; border-color: #bbf7d0; }
+.theme-cat-green .btn-ctrl { background: #f0fdf4; color: #15803d; }
+
+.cat-pink-header { background: #fce7f3; color: #be185d; border-left: 5px solid #db2777; }
+.theme-cat-pink { border-color: #f472b6; background: #fdf2f8; }
+.theme-cat-pink .rate-val { color: #be185d; }
+.theme-cat-pink .rate-katta-total { background: #fce7f3; color: #9d174d; border-color: #fbcfe8; }
+.theme-cat-pink .btn-ctrl { background: #fdf2f8; color: #be185d; }
+
 .prod-card.active-selected {
-    border-color: #2563eb;
-    background-color: #f8fafc;
-    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.12);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    transform: scale(1.01);
 }
 
 .prod-meta-top {
@@ -296,11 +353,12 @@ body {
 
 .prod-badge {
     font-size: 11px;
-    background: #f1f5f9;
+    background: #ffffff;
     color: #475569;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-weight: 700;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .prod-rate-box {
@@ -309,41 +367,30 @@ body {
     line-height: 1.5;
 }
 
-.rate-pouch {
-    color: #334155;
-}
-
-.rate-val {
-    color: var(--success);
-    font-weight: 700;
-    font-size: 15px;
-}
+.rate-pouch { color: #334155; }
+.rate-val { font-weight: 700; font-size: 15px; }
 
 .rate-katta-total {
     margin-top: 4px;
-    background: #fef3c7;
-    border: 1px solid #fde68a;
     padding: 3px 8px;
     border-radius: 5px;
-    color: #92400e;
-    font-size: 12.5px;
+    font-size: 12px;
     display: inline-block;
-    font-weight: 600;
+    font-weight: 700;
+    border: 1px solid;
 }
 
-.rate-katta-total strong {
-    color: #b45309;
-    font-size: 14px;
-}
+.rate-katta-total strong { font-size: 13.5px; }
 
 .prod-actions {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #f8fafc;
+    background: #ffffff;
     border-radius: 8px;
     padding: 8px 12px;
     gap: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .control-item {
@@ -372,20 +419,16 @@ body {
 }
 
 .btn-ctrl {
-    background: #f1f5f9;
     border: none;
     flex: 1;
     height: 36px;
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
-    color: #1e293b;
     transition: 0.1s;
 }
 
-.btn-ctrl:active {
-    background: #cbd5e1;
-}
+.btn-ctrl:active { filter: brightness(0.9); }
 
 .step-control input {
     width: 48px;
@@ -424,11 +467,9 @@ body {
     transition: 0.2s;
 }
 
-.btn-view-bill:hover {
-    background: #c2410c;
-}
+.btn-view-bill:hover { background: #c2410c; }
 
-/* ભાગ ૩: પેમેન્ટ પેનલ */
+/* ==================== ભાગ ૩: પેમેન્ટ પેનલ ==================== */
 .bill-nav-top {
     display: flex;
     justify-content: space-between;
@@ -447,9 +488,7 @@ body {
     transition: 0.2s;
 }
 
-.btn-back:hover {
-    background: #cbd5e1;
-}
+.btn-back:hover { background: #cbd5e1; }
 
 .badge-live {
     background: #dcfce7;
@@ -461,17 +500,18 @@ body {
 }
 
 .payment-control-panel {
-    background: #f8fafc;
-    border: 1.5px solid var(--border-color);
-    border-radius: 10px;
+    background: #ffffff;
+    border: 2px solid #cbd5e1;
+    border-radius: 12px;
     padding: 16px;
     margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 }
 
 .panel-heading {
-    font-size: 15px;
+    font-size: 15.5px;
     color: var(--primary);
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 }
 
 .payment-grid {
@@ -480,36 +520,47 @@ body {
     gap: 12px;
 }
 
+.pay-input-item {
+    border-radius: 8px;
+    padding: 10px;
+    border: 1.5px solid;
+}
+
 .pay-input-item label {
     display: block;
     font-size: 12px;
     font-weight: 700;
-    color: #334155;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 }
 
 .pay-input-item input {
     width: 100%;
-    padding: 9px 12px;
-    border: 1.5px solid var(--border-color);
+    padding: 8px 10px;
     border-radius: 6px;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 700;
     outline: none;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
 }
 
-.pay-input-item input:focus {
-    border-color: var(--primary-light);
-}
+.pay-cash-item { background: #f0fdf4; border-color: #86efac; }
+.pay-cash-item label { color: #166534; }
 
-.balance-item input {
-    background-color: #fef08a;
-    color: #854d0e;
-    border-color: #facc15;
-    font-size: 16px;
-}
+.pay-online-item { background: #eff6ff; border-color: #93c5fd; }
+.pay-online-item label { color: #1e40af; }
 
-/* બિલ ટેબલ અને પેપર */
+.pay-disc-item { background: #fff7ed; border-color: #fdba74; }
+.pay-disc-item label { color: #9a3412; }
+
+.pay-dep-item { background: #fdf2f8; border-color: #f472b6; }
+.pay-dep-item label { color: #9d174d; }
+
+.pay-due-item { background: #fefce8; border-color: #fde047; }
+.pay-due-item label { color: #854d0e; }
+.pay-due-item input { background: #fef08a; color: #854d0e; border-color: #eab308; }
+
+/* ==================== ભાગ ૩: કલરફુલ બિલ ટેબલ અને હિસાબ સેક્શન ==================== */
 .bill-paper {
     background: #ffffff;
     border: 2px solid #0f172a;
@@ -555,13 +606,8 @@ body {
     margin-bottom: 12px;
 }
 
-.full-width { 
-    grid-column: 1 / -1; 
-}
-
-.table-responsive { 
-    overflow-x: auto; 
-}
+.full-width { grid-column: 1 / -1; }
+.table-responsive { overflow-x: auto; }
 
 .bill-table {
     width: 100%;
@@ -569,49 +615,91 @@ body {
 }
 
 .bill-table th, .bill-table td {
-    border: 1px solid var(--border-color);
-    padding: 7px 5px;
+    border: 1px solid #cbd5e1;
+    padding: 8px 6px;
     font-size: 12px;
     text-align: center;
 }
 
 .bill-table th {
-    background: #f1f5f9;
+    background: #0f172a;
+    color: #ffffff;
     font-weight: 700;
 }
 
-.text-left { 
-    text-align: left !important; 
+/* બિલમાં કેટેગરી હેડર રો */
+.bill-cat-header-row {
+    font-weight: 700;
+    text-align: left;
+    font-size: 12.5px;
+    padding: 6px 8px !important;
 }
 
-.text-right { 
-    text-align: right !important; 
-    padding-right: 10px !important; 
-}
+.bcat-blue { background: #dbeafe !important; color: #1e3a8a !important; border-left: 4px solid #2563eb; }
+.bcat-purple { background: #f3e8ff !important; color: #6b21a8 !important; border-left: 4px solid #9333ea; }
+.bcat-amber { background: #ffedd5 !important; color: #9a3412 !important; border-left: 4px solid #ea580c; }
+.bcat-teal { background: #ccfbf1 !important; color: #115e59 !important; border-left: 4px solid #0d9488; }
+.bcat-green { background: #dcfce7 !important; color: #166534 !important; border-left: 4px solid #16a34a; }
+.bcat-pink { background: #fce7f3 !important; color: #9d174d !important; border-left: 4px solid #db2777; }
+
+.brow-cat-blue { background: #f8fbff; }
+.brow-cat-purple { background: #faf5ff; }
+.brow-cat-amber { background: #fffaf5; }
+.brow-cat-teal { background: #f0fdfa; }
+.brow-cat-green { background: #f0fdf4; }
+.brow-cat-pink { background: #fdf2f8; }
+
+.text-left { text-align: left !important; }
+.text-right { text-align: right !important; padding-right: 12px !important; }
 
 .empty-cart-msg {
     padding: 15px !important;
     color: var(--text-muted);
 }
 
+/* ------------------- કલરફુલ હિસાબ સેક્શન (Footer Rows) ------------------- */
+
+/* ૧. માલની કુલ રકમ - વાદળી થીમ */
 .total-row-main {
-    background: #f1f5f9;
+    background: #e0f2fe !important;
+    color: #0369a1 !important;
+    font-weight: 800;
+    font-size: 14px;
+    border-top: 2px solid #0284c7;
+}
+
+/* ૨. બાદ ડિસ્કાઉન્ટ - ઓરેન્જ થીમ */
+.row-discount-style {
+    background: #ffedd5 !important;
+    color: #c2410c !important;
     font-weight: 700;
-    font-size: 13.5px;
+    font-size: 13px;
 }
 
-.calc-summary-row {
-    font-size: 12.5px;
-    color: #475569;
-    font-weight: 600;
-    background: #fafafa;
+/* ૩. બાદ અગાઉ જમા - ગુલાબી/પિંક થીમ */
+.row-deposit-style {
+    background: #fce7f3 !important;
+    color: #be185d !important;
+    font-weight: 700;
+    font-size: 13px;
 }
 
+/* ૪. આવેલ રકમ (રોકડ + ઓનલાઇન) - લીલી/ગ્રીન થીમ */
+.row-paid-style {
+    background: #dcfce7 !important;
+    color: #15803d !important;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+/* ૫. કુલ ચૂકવવાપાત્ર / બાકી રકમ - ઘાટો પીળો/ગોલ્ડન થીમ */
 .due-highlight-row {
-    background: #fef08a;
-    font-weight: 700;
-    font-size: 15px;
-    color: #0f172a;
+    background: #fef08a !important;
+    color: #854d0e !important;
+    font-weight: 800;
+    font-size: 16px;
+    border-top: 2px solid #eab308;
+    border-bottom: 2px solid #eab308;
 }
 
 .bill-terms {
@@ -631,10 +719,10 @@ body {
     cursor: pointer;
 }
 
-/* ૫ એક્શન બટન્સ ડિઝાઇન */
+/* ૪ એક્શન બટન્સ ડિઝાઇન */
 .action-buttons-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
     margin-top: 20px;
 }
@@ -657,20 +745,15 @@ body {
 .btn-whatsapp-act { background: var(--whatsapp); }
 .btn-whatsapp-act:hover { background: #15803d; }
 
-.btn-pdf-act { background: #6366f1; }
-.btn-pdf-act:hover { background: #4f46e5; }
-
 .btn-print-act { background: #475569; }
 .btn-print-act:hover { background: #334155; }
 
 .btn-clear-act { background: var(--danger); }
 .btn-clear-act:hover { background: #b91c1c; }
 
-.hidden { 
-    display: none !important; 
-}
+.hidden { display: none !important; }
 
-/* ==================== પ્રિન્ટ માટે ફક્ત અને ફક્ત બિલ જ આવે ==================== */
+/* ==================== પ્રિન્ટ માટે ફક્ત બિલ જ આવે ==================== */
 @media print {
     html, body {
         background: #ffffff !important;
