@@ -74,14 +74,14 @@
             <div class="panel-top">
                 <div>
                     <h2>📋 ભાગ ૨: નમકીન ઓર્ડર લિસ્ટ</h2>
-                    <p class="subtitle">+ અથવા - કરતાં જ આઇટમ ડાયરેક્ટ બિલમાં ઉમેરાઈ જશે</p>
+                    <p class="subtitle">કેટેગરી ખોલવા તેના પર ક્લિક કરો</p>
                 </div>
                 <div class="search-box">
-                    <input type="text" id="productSearch" placeholder="🔍 આઇટમ શોધો (દા.ત. ગાંઠીયા, સેવ...)" oninput="filterProductCards()">
+                    <input type="text" id="productSearch" placeholder="🔍 આઇટમ શોધો..." oninput="filterProductCards()">
                 </div>
             </div>
 
-            <div id="productsFullContainer" class="products-grid"></div>
+            <div id="productsFullContainer"></div>
 
             <div class="view-bill-bar">
                 <button type="button" class="btn btn-view-bill" onclick="goToPart3()">
@@ -100,7 +100,6 @@
                 <span class="badge-live">લાઈવ હિસાબ બિલ</span>
             </div>
 
-            <!-- કલરફુલ પેમેન્ટ કંટ્રોલ પેનલ -->
             <div class="payment-control-panel">
                 <h3 class="panel-heading">💰 પેમેન્ટ અને હિસાબ એન્ટ્રી</h3>
                 <div class="payment-grid">
@@ -127,7 +126,6 @@
                 </div>
             </div>
 
-            <!-- કલરફુલ બિલ ટેબલ -->
             <div id="printableBillArea" class="bill-paper">
                 <div class="bill-header">
                     <img src="logo.png" alt="અમાન સેલ્સ એજન્સી" class="company-logo bill-logo-img" id="logoPart3">
@@ -156,9 +154,7 @@
                             </tr>
                         </thead>
                         <tbody id="billItemsTbody">
-                            <tr>
-                                <td colspan="7" class="empty-cart-msg">હજુ કોઈ આઇટમ ઉમેરેલી નથી.</td>
-                            </tr>
+                            <tr><td colspan="7" class="empty-cart-msg">હજુ કોઈ આઇટમ ઉમેરેલી નથી.</td></tr>
                         </tbody>
                         <tfoot>
                             <tr class="total-row-main">
@@ -184,45 +180,43 @@
                         </tfoot>
                     </table>
                 </div>
-
-                <div class="bill-terms">
-                    <p>Thank You Visit Again!</p>
-                </div>
+                <div class="bill-terms"><p>Thank You Visit Again!</p></div>
             </div>
 
-            <!-- એક્શન બટન્સ -->
+            <!-- એક્શન બટન્સ (ફક્ત ડાઉનલોડ અને ક્લિયર જ રાખ્યા છે) -->
             <div class="action-buttons-grid">
-                <button type="button" class="btn-act btn-download-act" onclick="exportBillToGallery()">
-                    📸 ગેલેરીમાં બિલ સેવ કરો
-                </button>
-                <button type="button" class="btn-act btn-whatsapp-act" onclick="shareOnWhatsAppAndSave()">
-                    💬 WhatsApp પર મોકલો
-                </button>
-                <button type="button" class="btn-act btn-print-act" onclick="printBillDirect()">
-                    🖨️ પ્રિન્ટ બિલ (Printer)
-                </button>
-                <button type="button" class="btn-act btn-clear-act" onclick="clearFullBill()">
-                    🔄 ક્લિયર બિલ (નવો ઓર્ડર)
-                </button>
+                <button type="button" class="btn-act btn-download-act" onclick="exportBillToGallery()">📸 ગેલેરીમાં બિલ સેવ કરો</button>
+                <button type="button" class="btn-act btn-whatsapp-act" onclick="shareOnWhatsAppAndSave()">💬 WhatsApp પર મોકલો</button>
+                <button type="button" class="btn-act btn-clear-act" onclick="clearFullBill()">🔄 ક્લિયર બિલ (નવો ઓર્ડર)</button>
             </div>
         </section>
 
-        <!-- ==================== એડિટ પ્રાઇઝ મોડલ (Custom Popup) ==================== -->
+        <!-- ==================== એડિટ પ્રાઇઝ મોડલ ==================== -->
         <div id="priceEditModal" class="modal-overlay hidden">
             <div class="modal-card">
-                <div class="modal-header-top">
-                    <h3 id="modalProductName">પ્રોડક્ટ નામ</h3>
-                </div>
-                <div class="modal-body">
-                    <p class="modal-subtitle">આ આઇટમનો નવો ભાવ દાખલ કરો (૧ પાઉંચ નો):</p>
-                    
-                    <div class="form-group">
-                        <input type="number" id="newPriceInput" placeholder="નવો ભાવ લખો (દા.ત. 70)" min="0">
+                <div id="modalThemeContainer" style="padding: 20px; border-bottom: 2px dashed #cbd5e1; text-align: left;">
+                    <div class="prod-meta-top">
+                        <div class="prod-name" id="modalProductName" style="font-size: 18px; font-weight: bold;">સ્પે સેવ (500 Gm)</div>
+                        <span class="prod-badge" id="modalPackBadge">૧ કટો = 24 પાઉંચ</span>
                     </div>
-                    
-                    <div class="modal-actions">
-                        <button type="button" class="btn btn-cancel" onclick="closeEditModal()">રદ કરો</button>
-                        <button type="button" class="btn btn-primary" onclick="saveNewPrice()">💾 સેવ કરો</button>
+                    <div class="prod-rate-box" style="margin-top: 12px;">
+                        <span class="rate-pouch">૧ પાઉંચ: <strong class="rate-val" id="modalCurrentPrice" style="font-size: 18px;">₹70</strong> 
+                            <span style="font-size: 13px; color: #94a3b8; text-decoration: line-through; margin-left: 8px;" id="modalMrp">MRP: ₹90</span>
+                        </span><br>
+                        <div class="rate-katta-total" id="modalKattaTotal" style="margin-top: 8px; padding: 6px 10px; font-size: 14px;">
+                            ૧ કટો (24 પાઉંચ) = <strong>₹1680</strong>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-body" style="padding: 20px; background: #f8fafc;">
+                    <p class="modal-subtitle" style="text-align: left; margin-bottom: 10px; color: #0f172a; font-weight: 700;">✏️ નવો પાઉંચ ભાવ દાખલ કરો:</p>
+                    <div class="form-group">
+                        <input type="number" id="newPriceInput" placeholder="નવો ભાવ (₹)" min="0" style="font-size: 24px; font-weight: bold; color: #1e3a8a; text-align: left; padding: 10px 15px; width: 100%; border-radius: 8px; border: 2px solid #cbd5e1;">
+                    </div>
+                    <div class="modal-actions" style="margin-top: 20px; display: flex; gap: 10px;">
+                        <button type="button" class="btn btn-cancel" onclick="closeEditModal()" style="flex: 1; padding: 12px; border: none; border-radius: 6px; background: #e2e8f0; font-weight: bold;">રદ કરો</button>
+                        <button type="button" class="btn btn-primary" onclick="saveNewPrice()" style="flex: 1; padding: 12px; border: none; border-radius: 6px; background: #0f172a; color: white; font-weight: bold;">💾 સેવ કરો</button>
                     </div>
                 </div>
             </div>
