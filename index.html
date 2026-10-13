@@ -127,7 +127,7 @@
                 </div>
             </div>
 
-            <!-- કલરફુલ બિલ ટેબલ (માલની રકમ સેક્શનમાં કલર્સ સાથે) -->
+            <!-- કલરફુલ બિલ ટેબલ -->
             <div id="printableBillArea" class="bill-paper">
                 <div class="bill-header">
                     <img src="logo.png" alt="અમાન સેલ્સ એજન્સી" class="company-logo bill-logo-img" id="logoPart3">
@@ -161,27 +161,22 @@
                             </tr>
                         </tbody>
                         <tfoot>
-                            <!-- ૧. માલની કુલ રકમ (વાદળી) -->
                             <tr class="total-row-main">
                                 <td colspan="5" class="text-right">માલની કુલ રકમ:</td>
                                 <td colspan="2" id="billGrossTotal">₹ 0</td>
                             </tr>
-                            <!-- ૨. બાદ ડિસ્કાઉન્ટ (ઓરેન્જ) -->
                             <tr class="row-discount-style" id="rowDiscount" style="display: none;">
                                 <td colspan="5" class="text-right">બાદ ડિસ્કાઉન્ટ:</td>
                                 <td colspan="2" id="dispDiscount">₹ 0</td>
                             </tr>
-                            <!-- ૩. બાદ અગાઉ જમા (પિંક) -->
                             <tr class="row-deposit-style" id="rowDeposit" style="display: none;">
                                 <td colspan="5" class="text-right">બાદ અગાઉ જમા:</td>
                                 <td colspan="2" id="dispDeposit">₹ 0</td>
                             </tr>
-                            <!-- ૪. આવેલ રકમ (ગ્રીન) -->
                             <tr class="row-paid-style" id="rowPaid" style="display: none;">
                                 <td colspan="5" class="text-right">આવેલ રકમ (રોકડ + ઓનલાઇન):</td>
                                 <td colspan="2" id="dispPaid">₹ 0</td>
                             </tr>
-                            <!-- ૫. કુલ ચૂકવવાપાત્ર / બાકી રકમ (યલો હાઇલાઇટ) -->
                             <tr class="due-highlight-row">
                                 <td colspan="5" class="text-right">કુલ ચૂકવવાપાત્ર / બાકી રકમ:</td>
                                 <td colspan="2" id="billFinalDueTotal">₹ 0</td>
@@ -211,6 +206,27 @@
                 </button>
             </div>
         </section>
+
+        <!-- ==================== એડિટ પ્રાઇઝ મોડલ (Custom Popup) ==================== -->
+        <div id="priceEditModal" class="modal-overlay hidden">
+            <div class="modal-card">
+                <div class="modal-header-top">
+                    <h3 id="modalProductName">પ્રોડક્ટ નામ</h3>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-subtitle">આ આઇટમનો નવો ભાવ દાખલ કરો (૧ પાઉંચ નો):</p>
+                    
+                    <div class="form-group">
+                        <input type="number" id="newPriceInput" placeholder="નવો ભાવ લખો (દા.ત. 70)" min="0">
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-cancel" onclick="closeEditModal()">રદ કરો</button>
+                        <button type="button" class="btn btn-primary" onclick="saveNewPrice()">💾 સેવ કરો</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </main>
 
