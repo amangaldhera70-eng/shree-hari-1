@@ -1,48 +1,48 @@
-// ૧. લિસ્ટ મુજબનો કાયમી પ્રોડક્ટ ડેટા
+// ૧. લિસ્ટ મુજબનો કાયમી પ્રોડક્ટ ડેટા (MRP સાથે)
 const productCatalog = [
     // --- ૧. 500 ગ્રામ (સેક્શન A) - વાદળી થીમ ---
-    { id: 1, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "સ્પે સેવ (500 Gm)", packType: "કટો", packSize: 24, price: 70 },
-    { id: 2, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "ભાવનગરી ગાંઠીયા (500 Gm)", packType: "કટો", packSize: 24, price: 70 },
-    { id: 3, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "નાયલોન ગાંઠીયા (500 Gm)", packType: "કટો", packSize: 24, price: 70 },
-    { id: 4, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "મસાલા તીખા ગાંઠીયા (500 Gm)", packType: "કટો", packSize: 24, price: 70 },
-    { id: 5, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "સ્પે ચવાણું (500 Gm)", packType: "કટો", packSize: 30, price: 70 },
-    { id: 6, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "ખટ્ટા મીઠા મીક્ષ (500 Gm)", packType: "કટો", packSize: 30, price: 70 },
-    { id: 7, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "મસાલા ચણા દાળ (500 Gm)", packType: "કટો", packSize: 30, price: 70 },
-    { id: 8, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "મોળી ચણા દાળ (500 Gm)", packType: "કટો", packSize: 30, price: 70 },
-    { id: 9, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "મસાલા વટાણા (500 Gm)", packType: "કટો", packSize: 30, price: 70 },
+    { id: 1, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "સ્પે સેવ (500 Gm)", packType: "કટો", packSize: 24, price: 70, mrp: 90 },
+    { id: 2, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "ભાવનગરી ગાંઠીયા (500 Gm)", packType: "કટો", packSize: 24, price: 70, mrp: 90 },
+    { id: 3, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "નાયલોન ગાંઠીયા (500 Gm)", packType: "કટો", packSize: 24, price: 70, mrp: 90 },
+    { id: 4, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "મસાલા તીખા ગાંઠીયા (500 Gm)", packType: "કટો", packSize: 24, price: 70, mrp: 90 },
+    { id: 5, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "સ્પે ચવાણું (500 Gm)", packType: "કટો", packSize: 30, price: 70, mrp: 90 },
+    { id: 6, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "ખટ્ટા મીઠા મીક્ષ (500 Gm)", packType: "કટો", packSize: 30, price: 70, mrp: 90 },
+    { id: 7, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "મસાલા ચણા દાળ (500 Gm)", packType: "કટો", packSize: 30, price: 70, mrp: 90 },
+    { id: 8, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "મોળી ચણા દાળ (500 Gm)", packType: "કટો", packSize: 30, price: 70, mrp: 90 },
+    { id: 9, category: "૫૦૦ ગ્રામ (રેગ્યુલર)", colorClass: "cat-blue", name: "મસાલા વટાણા (500 Gm)", packType: "કટો", packSize: 30, price: 70, mrp: 90 },
 
     // --- ૨. 500 ગ્રામ પ્રીમિયમ (સેક્શન B) - જાંબલી/પર્પલ થીમ ---
-    { id: 10, category: "૫૦૦ ગ્રામ (પ્રીમિયમ)", colorClass: "cat-purple", name: "રતલામી સેવ (500 Gm)", packType: "કટો", packSize: 24, price: 75 },
-    { id: 11, category: "૫૦૦ ગ્રામ (પ્રીમિયમ)", colorClass: "cat-purple", name: "આલુ સેવ (500 Gm)", packType: "કટો", packSize: 24, price: 75 },
-    { id: 12, category: "૫૦૦ ગ્રામ (પ્રીમિયમ)", colorClass: "cat-purple", name: "તીખો ફરાળી ચેવડો (500 Gm)", packType: "કટો", packSize: 30, price: 75 },
-    { id: 13, category: "૫૦૦ ગ્રામ (પ્રીમિયમ)", colorClass: "cat-purple", name: "લીંબુ શીંગ ભુજીયા (500 Gm)", packType: "કટો", packSize: 30, price: 75 },
-    { id: 14, category: "૫૦૦ ગ્રામ (પ્રીમિયમ)", colorClass: "cat-purple", name: "મસાલા શીંગ ભુજીયા (500 Gm)", packType: "કટો", packSize: 30, price: 75 },
-    { id: 15, category: "૫૦૦ ગ્રામ (પ્રીમિયમ)", colorClass: "cat-purple", name: "સ્પે સ્વીટ ફરાળી ચેવડો (500 Gm)", packType: "કટો", packSize: 30, price: 75 },
+    { id: 10, category: "૫૦૦ ગ્રામ (પ્રીમિયમ)", colorClass: "cat-purple", name: "રતલામી સેવ (500 Gm)", packType: "કટો", packSize: 24, price: 75, mrp: 95 },
+    { id: 11, category: "૫૦૦ ગ્રામ (પ્રીમિયમ)", colorClass: "cat-purple", name: "આલુ સેવ (500 Gm)", packType: "કટો", packSize: 24, price: 75, mrp: 95 },
+    { id: 12, category: "૫૦૦ ગ્રામ (પ્રીમિયમ)", colorClass: "cat-purple", name: "તીખો ફરાળી ચેવડો (500 Gm)", packType: "કટો", packSize: 30, price: 75, mrp: 95 },
+    { id: 13, category: "૫૦૦ ગ્રામ (પ્રીમિયમ)", colorClass: "cat-purple", name: "લીંબુ શીંગ ભુજીયા (500 Gm)", packType: "કટો", packSize: 30, price: 75, mrp: 95 },
+    { id: 14, category: "૫૦૦ ગ્રામ (પ્રીમિયમ)", colorClass: "cat-purple", name: "મસાલા શીંગ ભુજીયા (500 Gm)", packType: "કટો", packSize: 30, price: 75, mrp: 95 },
+    { id: 15, category: "૫૦૦ ગ્રામ (પ્રીમિયમ)", colorClass: "cat-purple", name: "સ્પે. સ્વીટ ફરાળી ચેવડો (500 Gm)", packType: "કટો", packSize: 30, price: 75, mrp: 95 },
 
     // --- ૩. 450 ગ્રામ (સેક્શન D) - એમ્બર/ઓરેન્જ થીમ ---
-    { id: 16, category: "૪૫૦ ગ્રામ", colorClass: "cat-amber", name: "ડાયમંડ ચવાણું (450 Gm)", packType: "કટો", packSize: 30, price: 55 },
+    { id: 16, category: "૪૫૦ ગ્રામ", colorClass: "cat-amber", name: "ડાયમંડ ચવાણું (450 Gm)", packType: "કટો", packSize: 30, price: 55, mrp: 70 },
 
     // --- ૪. 400 ગ્રામ (સેક્શન E) - ટીલ/સમુદ્રી થીમ ---
-    { id: 17, category: "૪૦૦ ગ્રામ", colorClass: "cat-teal", name: "દાબેલા ચણા (400 Gm)", packType: "કટો", packSize: 30, price: 50 },
-    { id: 18, category: "૪૦૦ ગ્રામ", colorClass: "cat-teal", name: "સેવ મમરા ગાર્લીક (400 Gm)", packType: "કટો", packSize: 30, price: 50 },
-    { id: 19, category: "૪૦૦ ગ્રામ", colorClass: "cat-teal", name: "સેવ મમરા મોળા (400 Gm)", packType: "કટો", packSize: 30, price: 50 },
-    { id: 20, category: "૪૦૦ ગ્રામ", colorClass: "cat-teal", name: "શક્કરપારા (400 Gm)", packType: "કટો", packSize: 30, price: 50 },
-    { id: 21, category: "૪૦૦ ગ્રામ", colorClass: "cat-teal", name: "ભાખરવડી (400 Gm)", packType: "કટો", packSize: 30, price: 50 },
+    { id: 17, category: "૪૦૦ ગ્રામ", colorClass: "cat-teal", name: "દબેલા ચણા (400 Gm)", packType: "કટો", packSize: 30, price: 50, mrp: 65 },
+    { id: 18, category: "૪૦૦ ગ્રામ", colorClass: "cat-teal", name: "સેવ મમરા ગાર્લીક (400 Gm)", packType: "કટો", packSize: 30, price: 50, mrp: 65 },
+    { id: 19, category: "૪૦૦ ગ્રામ", colorClass: "cat-teal", name: "સેવ મમરા મોળા (400 Gm)", packType: "કટો", packSize: 30, price: 50, mrp: 65 },
+    { id: 20, category: "૪૦૦ ગ્રામ", colorClass: "cat-teal", name: "શક્કરપારા (400 Gm)", packType: "કટો", packSize: 30, price: 50, mrp: 65 },
+    { id: 21, category: "૪૦૦ ગ્રામ", colorClass: "cat-teal", name: "ભાખરવડી (400 Gm)", packType: "કટો", packSize: 30, price: 50, mrp: 65 },
 
     // --- ૫. 250 ગ્રામ (સેક્શન F) - લીલી/ગ્રીન થીમ ---
-    { id: 22, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "સ્પે ચવાણું (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40 },
-    { id: 23, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "નાયલોન ગાંઠીયા (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40 },
-    { id: 24, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "ખટ્ટામીઠા મિક્ષ (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40 },
-    { id: 25, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "ભાવનગરી ગાંઠીયા (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40 },
-    { id: 26, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "રતલામી સેવ (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40 },
-    { id: 27, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "સ્પે સેવ (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40 },
-    { id: 28, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "મસાલા ચણા દાળ (250 Gm)", packType: "બોક્ષ", packSize: 24, price: 40 },
-    { id: 29, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "તીખો ફરાળી ચેવડો (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40 },
-    { id: 30, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "સ્પે સ્વીટ ફરાળી ચેવડો (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40 },
-    { id: 31, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "શીંગ ભજીયા (250 Gm)", packType: "બોક્ષ", packSize: 24, price: 40 },
+    { id: 22, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "મિક્ષ ચવાણું (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40, mrp: 50 },
+    { id: 23, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "નાયલોન ગાંઠીયા (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40, mrp: 50 },
+    { id: 24, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "ખટ્ટામીઠા મિક્ષ (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40, mrp: 50 },
+    { id: 25, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "ભાવનગરી ગાંઠીયા (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40, mrp: 50 },
+    { id: 26, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "રતલામી સેવ (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40, mrp: 50 },
+    { id: 27, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "સ્પે. સેવ (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40, mrp: 50 },
+    { id: 28, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "મસાલા દાળ (250 Gm)", packType: "બોક્ષ", packSize: 24, price: 40, mrp: 50 },
+    { id: 29, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "તીખો ફરાળી ચેવડો (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40, mrp: 50 },
+    { id: 30, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "સ્પે. સ્વીટ ફરાળી ચેવડો (250 Gm)", packType: "બોક્ષ", packSize: 21, price: 40, mrp: 50 },
+    { id: 31, category: "૨૫૦ ગ્રામ (બોક્ષ/કટો)", colorClass: "cat-green", name: "શીંગ ભજીયા (250 Gm)", packType: "બોક્ષ", packSize: 24, price: 40, mrp: 50 },
 
     // --- ૬. 200 ગ્રામ (સેક્શન G) - ગુલાબી/પિંક થીમ ---
-    { id: 32, category: "૨૦૦ ગ્રામ", colorClass: "cat-pink", name: "સોયા સ્ટીક (200 Gm)", packType: "બોક્ષ", packSize: 20, price: 35 }
+    { id: 32, category: "૨૦૦ ગ્રામ", colorClass: "cat-pink", name: "સોયા સ્ટીક (200 Gm)", packType: "બોક્ષ", packSize: 20, price: 35, mrp: 45 }
 ];
 
 let customerInfo = { name: "", mobile: "" };
@@ -197,7 +197,7 @@ function renderProductCards(products) {
                 <div>
                     <div class="prod-name">${item.name}</div>
                     <div class="prod-rate-box">
-                        <span class="rate-pouch">૧ પાઉંચ: <strong class="rate-val">₹${item.price}</strong></span><br>
+                        <span class="rate-pouch">૧ પાઉંચ: <strong class="rate-val">₹${item.price}</strong> <span style="font-size: 12px; color: #94a3b8; text-decoration: line-through; margin-left: 5px;">MRP: ₹${item.mrp}</span></span><br>
                         <span class="rate-katta-total">૧ ${item.packType} (${item.packSize} પાઉંચ) = <strong>₹${fullKattaPrice}</strong></span>
                     </div>
                 </div>
