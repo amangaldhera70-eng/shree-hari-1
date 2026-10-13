@@ -13,8 +13,6 @@
     
     <!-- html2canvas -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <!-- html2pdf.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
 
@@ -45,7 +43,7 @@
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="custNameInput">ગ્રાહક / પેઢીનું નામ <span class="req">*</span></label>
-                            <input type="text" id="custNameInput" placeholder="દા.ત. અમાન ગલઢેરા    " required>
+                            <input type="text" id="custNameInput" placeholder="દા.ત. ગલઢેરા અમાનભાઈ" required>
                         </div>
                         <div class="form-group">
                             <label for="custMobileInput">મોબાઇલ નંબર (ફરજિયાત ૧૦ અંક) <span class="req">*</span></label>
@@ -62,7 +60,7 @@
         </section>
 
 
-        <!-- ==================== ભાગ ૨: ઓર્ડર લિસ્ટ (ડાયરેક્ટ + / -) ==================== -->
+        <!-- ==================== ભાગ ૨: ઓર્ડર લિસ્ટ ==================== -->
         <section id="sectionPart2" class="card main-box hidden">
             <div class="customer-info-bar">
                 <div class="info-content">
@@ -102,34 +100,34 @@
                 <span class="badge-live">લાઈવ હિસાબ બિલ</span>
             </div>
 
-            <!-- પેમેન્ટ કંટ્રોલ પેનલ -->
+            <!-- કલરફુલ પેમેન્ટ કંટ્રોલ પેનલ -->
             <div class="payment-control-panel">
                 <h3 class="panel-heading">💰 પેમેન્ટ અને હિસાબ એન્ટ્રી</h3>
                 <div class="payment-grid">
-                    <div class="pay-input-item">
+                    <div class="pay-input-item pay-cash-item">
                         <label>💵 રોકડ (Cash) ₹:</label>
                         <input type="number" id="payCash" value="0" min="0" oninput="calculateBalance()">
                     </div>
-                    <div class="pay-input-item">
+                    <div class="pay-input-item pay-online-item">
                         <label>📲 ઓનલાઇન (Online) ₹:</label>
                         <input type="number" id="payOnline" value="0" min="0" oninput="calculateBalance()">
                     </div>
-                    <div class="pay-input-item">
+                    <div class="pay-input-item pay-disc-item">
                         <label>🏷️ ડિસ્કાઉન્ટ (Discount) ₹:</label>
                         <input type="number" id="payDiscount" value="0" min="0" oninput="calculateBalance()">
                     </div>
-                    <div class="pay-input-item">
+                    <div class="pay-input-item pay-dep-item">
                         <label>📥 અગાઉ જમા (Deposit) ₹:</label>
                         <input type="number" id="payDeposit" value="0" min="0" oninput="calculateBalance()">
                     </div>
-                    <div class="pay-input-item balance-item">
+                    <div class="pay-input-item pay-due-item">
                         <label>⚠️ કુલ બાકી રકમ (Due) ₹:</label>
                         <input type="number" id="payDue" value="0" readonly>
                     </div>
                 </div>
             </div>
 
-            <!-- આ ભાગ ફોટો, PDF અને પ્રિન્ટરમાં જશે -->
+            <!-- કલરફુલ બિલ ટેબલ (માલની રકમ સેક્શનમાં કલર્સ સાથે) -->
             <div id="printableBillArea" class="bill-paper">
                 <div class="bill-header">
                     <img src="logo.png" alt="અમાન સેલ્સ એજન્સી" class="company-logo bill-logo-img" id="logoPart3">
@@ -163,22 +161,27 @@
                             </tr>
                         </tbody>
                         <tfoot>
+                            <!-- ૧. માલની કુલ રકમ (વાદળી) -->
                             <tr class="total-row-main">
                                 <td colspan="5" class="text-right">માલની કુલ રકમ:</td>
                                 <td colspan="2" id="billGrossTotal">₹ 0</td>
                             </tr>
-                            <tr class="calc-summary-row" id="rowDiscount" style="display: none;">
+                            <!-- ૨. બાદ ડિસ્કાઉન્ટ (ઓરેન્જ) -->
+                            <tr class="row-discount-style" id="rowDiscount" style="display: none;">
                                 <td colspan="5" class="text-right">બાદ ડિસ્કાઉન્ટ:</td>
                                 <td colspan="2" id="dispDiscount">₹ 0</td>
                             </tr>
-                            <tr class="calc-summary-row" id="rowDeposit" style="display: none;">
+                            <!-- ૩. બાદ અગાઉ જમા (પિંક) -->
+                            <tr class="row-deposit-style" id="rowDeposit" style="display: none;">
                                 <td colspan="5" class="text-right">બાદ અગાઉ જમા:</td>
                                 <td colspan="2" id="dispDeposit">₹ 0</td>
                             </tr>
-                            <tr class="calc-summary-row" id="rowPaid" style="display: none;">
+                            <!-- ૪. આવેલ રકમ (ગ્રીન) -->
+                            <tr class="row-paid-style" id="rowPaid" style="display: none;">
                                 <td colspan="5" class="text-right">આવેલ રકમ (રોકડ + ઓનલાઇન):</td>
                                 <td colspan="2" id="dispPaid">₹ 0</td>
                             </tr>
+                            <!-- ૫. કુલ ચૂકવવાપાત્ર / બાકી રકમ (યલો હાઇલાઇટ) -->
                             <tr class="due-highlight-row">
                                 <td colspan="5" class="text-right">કુલ ચૂકવવાપાત્ર / બાકી રકમ:</td>
                                 <td colspan="2" id="billFinalDueTotal">₹ 0</td>
@@ -188,7 +191,7 @@
                 </div>
 
                 <div class="bill-terms">
-                    <p>✓ માલ મળ્યા બદલ આભાર! ફરી ઓર્ડર આપશો.</p>
+                    <p>Thank You Visit Again!</p>
                 </div>
             </div>
 
@@ -199,9 +202,6 @@
                 </button>
                 <button type="button" class="btn-act btn-whatsapp-act" onclick="shareOnWhatsAppAndSave()">
                     💬 WhatsApp પર મોકલો
-                </button>
-                <button type="button" class="btn-act btn-pdf-act" onclick="saveBillAsPDF()">
-                    📄 PDF તરીકે સેવ કરો
                 </button>
                 <button type="button" class="btn-act btn-print-act" onclick="printBillDirect()">
                     🖨️ પ્રિન્ટ બિલ (Printer)
