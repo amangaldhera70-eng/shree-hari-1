@@ -159,6 +159,42 @@ function backToPart2() {
     document.getElementById('sectionPart3').classList.add('hidden');
 }
 
+// ----------------- નવો ભાવ બદલવા માટેનું ફંક્શન ----------------- //
+function editPrice(id) {
+    const item = productCatalog.find(p => p.id === id);
+    if (!item) return;
+
+    // યુઝર પાસેથી નવો ભાવ માગવા માટે prompt બોક્સ
+    const newPriceInput = prompt(`"${item.name}" નો નવો ભાવ દાખલ કરો (૧ પાઉંચ નો):`, item.price);
+    
+    if (newPriceInput !== null && newPriceInput.trim() !== "") {
+        const newPrice = parseFloat(newPriceInput);
+        
+        if (!isNaN(newPrice) && newPrice >= 0) {
+            item.price = newPrice; // કેટલોગમાં નવો ભાવ સેવ કરો
+            
+            // જો કાર્ટમાં વસ્તુ હોય તો ત્યાં પણ નવો ભાવ અપડેટ કરો
+            const cartIndex = cartItems.findIndex(c => c.id === id);
+            if (cartIndex > -1) {
+                cartItems[cartIndex].unitPrice = newPrice;
+                cartItems[cartIndex].totalCost = cartItems[cartIndex].totalPouches * newPrice;
+                updateInvoiceTable();
+                calculateBalance();
+            }
+
+            // કાર્ડ્સને રિફ્રેશ કરો જેથી નવો ભાવ દેખાય
+            const searchVal = document.getElementById('productSearch').value;
+            if (searchVal) {
+                filterProductCards();
+            } else {
+                renderProductCards(productCatalog);
+            }
+        } else {
+            alert("ભૂલ: કૃપા કરીને સાચો આંકડો (નંબર) નાખો.");
+        }
+    }
+}
+
 function renderProductCards(products) {
     const container = document.getElementById('productsFullContainer');
     if (!container) return;
@@ -192,12 +228,16 @@ function renderProductCards(products) {
         card.className = `prod-card theme-${item.colorClass} ${isSelected ? 'active-selected' : ''}`;
         card.id = `card_${item.id}`;
 
+        // ✏️ બટન ઉમેરવામાં આવ્યું છે:
         card.innerHTML = `
             <div class="prod-meta-top">
                 <div>
                     <div class="prod-name">${item.name}</div>
                     <div class="prod-rate-box">
-                        <span class="rate-pouch">૧ પાઉંચ: <strong class="rate-val">₹${item.price}</strong> <span style="font-size: 12px; color: #94a3b8; text-decoration: line-through; margin-left: 5px;">MRP: ₹${item.mrp}</span></span><br>
+                        <span class="rate-pouch">૧ પાઉંચ: <strong class="rate-val">₹${item.price}</strong> 
+                            <span style="cursor: pointer; font-size: 14px; margin-left: 3px;" onclick="editPrice(${item.id})" title="ભાવ બદલો">✏️</span>
+                            <span style="font-size: 12px; color: #94a3b8; text-decoration: line-through; margin-left: 5px;">MRP: ₹${item.mrp}</span>
+                        </span><br>
                         <span class="rate-katta-total">૧ ${item.packType} (${item.packSize} પાઉંચ) = <strong>₹${fullKattaPrice}</strong></span>
                     </div>
                 </div>
