@@ -560,7 +560,7 @@ body {
 .pay-due-item label { color: #854d0e; }
 .pay-due-item input { background: #fef08a; color: #854d0e; border-color: #eab308; }
 
-/* ==================== ભાગ ૩: કલરફુલ બિલ ટેબલ અને હિસાબ સેક્શન ==================== */
+/* ==================== ભાગ ૩: કલરફુલ બિલ ટેબલ ==================== */
 .bill-paper {
     background: #ffffff;
     border: 2px solid #0f172a;
@@ -627,7 +627,6 @@ body {
     font-weight: 700;
 }
 
-/* બિલમાં કેટેગરી હેડર રો */
 .bill-cat-header-row {
     font-weight: 700;
     text-align: left;
@@ -657,9 +656,6 @@ body {
     color: var(--text-muted);
 }
 
-/* ------------------- કલરફુલ હિસાબ સેક્શન (Footer Rows) ------------------- */
-
-/* ૧. માલની કુલ રકમ - વાદળી થીમ */
 .total-row-main {
     background: #e0f2fe !important;
     color: #0369a1 !important;
@@ -668,7 +664,6 @@ body {
     border-top: 2px solid #0284c7;
 }
 
-/* ૨. બાદ ડિસ્કાઉન્ટ - ઓરેન્જ થીમ */
 .row-discount-style {
     background: #ffedd5 !important;
     color: #c2410c !important;
@@ -676,7 +671,6 @@ body {
     font-size: 13px;
 }
 
-/* ૩. બાદ અગાઉ જમા - ગુલાબી/પિંક થીમ */
 .row-deposit-style {
     background: #fce7f3 !important;
     color: #be185d !important;
@@ -684,7 +678,6 @@ body {
     font-size: 13px;
 }
 
-/* ૪. આવેલ રકમ (રોકડ + ઓનલાઇન) - લીલી/ગ્રીન થીમ */
 .row-paid-style {
     background: #dcfce7 !important;
     color: #15803d !important;
@@ -692,7 +685,6 @@ body {
     font-size: 13px;
 }
 
-/* ૫. કુલ ચૂકવવાપાત્ર / બાકી રકમ - ઘાટો પીળો/ગોલ્ડન થીમ */
 .due-highlight-row {
     background: #fef08a !important;
     color: #854d0e !important;
@@ -719,7 +711,6 @@ body {
     cursor: pointer;
 }
 
-/* ૪ એક્શન બટન્સ ડિઝાઇન */
 .action-buttons-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -753,41 +744,116 @@ body {
 
 .hidden { display: none !important; }
 
-/* ==================== પ્રિન્ટ માટે ફક્ત બિલ જ આવે ==================== */
+/* ==================== પ્રિન્ટ મીડિયા ==================== */
 @media print {
-    html, body {
-        background: #ffffff !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    body * {
-        visibility: hidden !important;
-    }
-
-    #printableBillArea, #printableBillArea * {
-        visibility: visible !important;
-    }
-
+    html, body { background: #ffffff !important; margin: 0 !important; padding: 0 !important; }
+    body * { visibility: hidden !important; }
+    #printableBillArea, #printableBillArea * { visibility: visible !important; }
     #printableBillArea {
-        position: absolute !important;
-        left: 0 !important;
-        top: 0 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 auto !important;
-        padding: 15px !important;
-        border: 2px solid #0f172a !important;
-        box-shadow: none !important;
-        background: #ffffff !important;
+        position: absolute !important; left: 0 !important; top: 0 !important;
+        width: 100% !important; max-width: 100% !important; margin: 0 auto !important;
+        padding: 15px !important; border: 2px solid #0f172a !important;
+        box-shadow: none !important; background: #ffffff !important;
     }
-
-    .no-capture {
-        display: none !important;
-    }
-
-    @page {
-        size: auto;
-        margin: 8mm;
-    }
+    .no-capture { display: none !important; }
+    @page { size: auto; margin: 8mm; }
 }
+
+/* ==================== કસ્ટમ મોડલ (Popup) ડિઝાઇન (પ્રાઇઝ લીસ્ટ મુજબ) ==================== */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(15, 23, 42, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.modal-card {
+    background: #ffffff;
+    width: 90%;
+    max-width: 340px;
+    border-radius: 12px;
+    border: 2px solid #0f172a; /* લીસ્ટ જેવી બોર્ડર */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    overflow: hidden;
+}
+
+@keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-header-top {
+    background: #e2e8f0; /* લીસ્ટના હેડર જેવો કલર (આછો ગ્રે/બ્લુ) */
+    border-bottom: 2px solid #0f172a;
+    padding: 14px 16px;
+    text-align: center;
+}
+
+.modal-header-top h3 {
+    color: #0f172a;
+    font-size: 19px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.modal-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.modal-subtitle {
+    font-size: 14px;
+    color: #334155;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.modal-body input {
+    width: 100%;
+    padding: 12px;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    outline: none;
+    color: #0f172a;
+    transition: 0.2s;
+}
+
+.modal-body input:focus {
+    border-color: #2563eb;
+    background: #f8fafc;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-cancel {
+    background: #f1f5f9;
+    color: #0f172a;
+    border: 1.5px solid #cbd5e1;
+    flex: 1;
+    padding: 12px;
+    font-size: 15px;
+}
+
+.btn-cancel:hover { background: #e2e8f0; }
+
+.modal-actions .btn-primary {
+    flex: 1;
+    padding: 12px;
+    font-size: 15px;
+    background: #0f172a;
+    border: 1.5px solid #0f172a;
+}
+
+.modal-actions .btn-primary:hover { background: #1e293b; }
